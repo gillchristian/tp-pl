@@ -1,3 +1,8 @@
+% WARNING: DO NOT CONSULT THIS FILE!!!
+% consult 'tree-node-leaf', and then do the test queries
+
+consult('tree-node-leaf').
+
 % a basic tree with a node and two a leaves.
 tree(node(1,1), leaf(2, 2), leaf(3,2)).
 

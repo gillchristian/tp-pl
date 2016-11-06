@@ -1,3 +1,6 @@
+% WARNING: DO NOT CONSULT THIS FILE!!!
+% consult 'generate-tree', and then do the test queries
+
 consult('generate-tree').
 
 generateTree(1, M).
