@@ -1,6 +1,9 @@
+% updates a node by simulating a chip passing through it
 updateNode(node(ID, S), PostNode) :-
   S =:= 0 , PostNode = node(ID, 1);
   S =:= 1 , PostNode = node(ID, 0).
+
+% Add a chip to the tree, it goes through the nodes ultil it reaches a leaf.
 
 % base case: add a chip to a tree consisting of a node and two leaves.
 addChip(tree(node(IDn, S), leaf(IDl, Nl), leaf(IDr, Nr)), Post) :-
@@ -21,3 +24,13 @@ addChip(tree(node(ID, S), Tl, Tr), Post) :-
     updateNode(node(ID, S), PostNode),
     addChip(Tl, PostL),
     Post = tree(PostNode, PostL, Tr).
+
+% Add N chips
+
+% base case: add a chip
+addNChips(Prev, 0, Post) :- addChip(Prev, Post).
+
+% base case: add n chips
+addNChips(Prev, N, Post) :-
+  X is N - 1,
+  addNChips(Prev, X, Post).
