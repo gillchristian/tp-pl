@@ -4,11 +4,20 @@ consult('tree-node-leaf').
 %   left: prev node * 2
 %   right: left + 1
 
-generateTree(1, M) :-
-  M = tree(node(x, 0), leaf(x, 0), leaf(x, 0)).
+% base case: generates a tree with a node and two leaves.
+generateTree(1, M, ID) :-
+  IDl is ID * 2,
+  IDr is IDl + 1,
+  M = tree(node(ID, 0), leaf(IDl, 0), leaf(IDr, 0)).
 
-generateTree(N, M) :-
+% generic case: generates a tree with a node and two trees.
+generateTree(N, M, ID) :-
   Depth is N - 1,
-  generateTree(Depth, TL),
-  generateTree(Depth, TR),
-  M = tree(node(x, 0), TL, TR).
+  IDl is ID * 2,
+  IDr is IDl + 1,
+  generateTree(Depth, TL, IDl),
+  generateTree(Depth, TR, IDr),
+  M = tree(node(ID, 0), TL, TR).
+
+% "exposed function", calls generate tree with the initial ID (1).
+generateTree(N, M) :- generateTree(N, M, 1).
