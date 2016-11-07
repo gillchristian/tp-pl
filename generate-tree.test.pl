@@ -2,9 +2,11 @@
 :- use_module('generate-tree').
 
 % generateTree(1, M).
+
 % M = tree(node(1, 0), leaf(2, 0), leaf(3, 0)).
 
 % generateTree(2, M).
+
 % M = tree(
 %   node(1, 0),
 %   tree(node(2, 0), leaf(4, 0), leaf(5, 0)),
@@ -13,6 +15,7 @@
 
 
 % generateTree(3, M).
+
 % M = tree(
 %   node(1, 0),
 %   tree(
@@ -28,6 +31,7 @@
 % ).
 
 % generateTree(4, M).
+
 % M = tree(
 %   node(1, 0),
 %   tree(
