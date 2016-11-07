@@ -1,21 +1,21 @@
-:- module(result, [result/3]).
+:- module(resultado, [resultado/3]).
 
 :- use_module('add-n-chips').
 :- use_module('tree-node-leaf').
 
-% walk tree: walks a tree and collects the leaves
+% walk maquina: walks a maquina and collects the leaves
 
-% basic case: collect the leaves of a tree made of a node and two leaves.
-walkTree(tree(_, leaf(IDl, Nl), leaf(IDr, Nr)), Acc, Leaves) :-
-  append(Acc, [leaf(IDl, Nl), leaf(IDr, Nr)], Leaves).
+% basic case: collect the leaves of a maquina made of a nodo and two leaves.
+walkmaquina(maquina(_, tronera(IDl, Nl), tronera(IDr, Nr)), Acc, Leaves) :-
+  append(Acc, [tronera(IDl, Nl), tronera(IDr, Nr)], Leaves).
 
-% generic case: walk the treas of a tree made of a node and two trees.
-walkTree(tree(_, tree(_, A, B), tree(_, C , E)), Acc, Leaves) :-
-  walkTree(tree(_, A, B), Acc, AccL),
-  walkTree(tree(_, C , E), Acc, AccR),
+% generic case: walk the treas of a maquina made of a nodo and two maquinas.
+walkmaquina(maquina(_, maquina(_, A, B), maquina(_, C , E)), Acc, Leaves) :-
+  walkmaquina(maquina(_, A, B), Acc, AccL),
+  walkmaquina(maquina(_, C , E), Acc, AccR),
   append(AccL, AccR, Leaves).
 
-% result: add N chips and the collect the results
-result(Prev, N, Leaves) :-
-  addNChips(Prev, N, Post),
-  walkTree(Post, [], Leaves).
+% resultado: add N chips and the collect the results
+resultado(Prev, N, Leaves) :-
+  ingresarVariasFichas(Prev, N, Post),
+  walkmaquina(Post, [], Leaves).

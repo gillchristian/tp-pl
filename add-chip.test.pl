@@ -2,9 +2,9 @@
 :- use_module('add-chip').
 :- use_module('generate-tree').
 
-% generateTree(2, M), addChip(M, X), addChip(X, Y), addChip(Y, Z).
+% maquinaEstadoInicial(2, M), ingresarFicha(M, X), ingresarFicha(X, Y), ingresarFicha(Y, Z).
 
-% M = tree(node(1, 0), tree(node(2, 0), leaf(4, 0), leaf(5, 0)), tree(node(3, 0), leaf(6, 0), leaf(7, 0))),
-% X = tree(node(1, 1), tree(node(2, 0), leaf(4, 0), leaf(5, 0)), tree(node(3, 1), leaf(6, 0), leaf(7, 1))),
-% Y = tree(node(1, 0), tree(node(2, 1), leaf(4, 0), leaf(5, 1)), tree(node(3, 1), leaf(6, 0), leaf(7, 1))),
-% Z = tree(node(1, 1), tree(node(2, 1), leaf(4, 0), leaf(5, 1)), tree(node(3, 0), leaf(6, 1), leaf(7, 1))).
+% M = maquina(nodo(1, 0), maquina(nodo(2, 0), tronera(4, 0), tronera(5, 0)), maquina(nodo(3, 0), tronera(6, 0), tronera(7, 0))),
+% X = maquina(nodo(1, 1), maquina(nodo(2, 0), tronera(4, 0), tronera(5, 0)), maquina(nodo(3, 1), tronera(6, 0), tronera(7, 1))),
+% Y = maquina(nodo(1, 0), maquina(nodo(2, 1), tronera(4, 0), tronera(5, 1)), maquina(nodo(3, 1), tronera(6, 0), tronera(7, 1))),
+% Z = maquina(nodo(1, 1), maquina(nodo(2, 1), tronera(4, 0), tronera(5, 1)), maquina(nodo(3, 0), tronera(6, 1), tronera(7, 1))).

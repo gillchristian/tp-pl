@@ -2,6 +2,6 @@
 :- use_module('generate-tree').
 :- use_module('result').
 
-% generateTree(2, M), result(M, 10, X).
-% M = tree(node(1, 0), tree(node(2, 0), leaf(4, 0), leaf(5, 0)), tree(node(3, 0), leaf(6, 0), leaf(7, 0))),
-% X = [leaf(4, 2), leaf(5, 3), leaf(6, 2), leaf(7, 3)] .
+% maquinaEstadoInicial(2, M), resultado(M, 10, X).
+% M = maquina(nodo(1, 0), maquina(nodo(2, 0), tronera(4, 0), tronera(5, 0)), maquina(nodo(3, 0), tronera(6, 0), tronera(7, 0))),
+% X = [tronera(4, 2), tronera(5, 3), tronera(6, 2), tronera(7, 3)] .

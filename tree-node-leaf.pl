@@ -1,32 +1,32 @@
-:- module(tree, [tree/3, node/2, leaf/2]).
+:- module(maquina, [maquina/3, nodo/2, tronera/2]).
 
-% leaf
-%   outher most nodes of the tree
+% tronera
+%   outher most nodos of the maquina
 %   functionality: accumulate chips.
-leaf(ID, N) :-
+tronera(ID, N) :-
   integer(ID), integer(N), % both numbers must be integers
   ID > -1, % id: greatter than 1
   N > -1. % amount of chips: greatter than 1
 
-% node:
-%   inner nodes of the tree
+% nodo:
+%   inner nodos of the maquina
 %   state: 1 chip follows to the left, 0 chip follows to the right
-node(ID, S) :-
+nodo(ID, S) :-
   integer(ID), integer(S), % both numbers must be integers
   ID > -1, % id: greatter than 1
-  S = 1 ; S = 0. % state of the node
+  S = 1 ; S = 0. % state of the nodo
 
-% tree
-%   a complete binary tree
+% maquina
+%   a complete binary maquina
 
-% basic tree: an inner node and two leaves.
-tree(node(ID, N), leaf(IDl, Nl), leaf(IDr, Nr)) :-
-  node(ID, N),
-  leaf(IDl, Nl),
-  leaf(IDr, Nr).
+% basic maquina: an inner nodo and two leaves.
+maquina(nodo(ID, N), tronera(IDl, Nl), tronera(IDr, Nr)) :-
+  nodo(ID, N),
+  tronera(IDl, Nl),
+  tronera(IDr, Nr).
 
-% inner tree: an inner node and two trees.
-tree(node(ID, N), tree(NodeL, LTl, LTr), tree(NodeR, RTl, RTr)) :-
-  node(ID, N), % node
-  tree(NodeL, LTl, LTr), % left tree
-  tree(NodeR, RTl, RTr). % right tree
+% inner maquina: an inner nodo and two maquinas.
+maquina(nodo(ID, N), maquina(nodoL, LTl, LTr), maquina(nodoR, RTl, RTr)) :-
+  nodo(ID, N), % nodo
+  maquina(nodoL, LTl, LTr), % left maquina
+  maquina(nodoR, RTl, RTr). % right maquina

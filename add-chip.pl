@@ -1,30 +1,30 @@
-:- module(addChip, [addChip/2]).
+:- module(ingresarFicha, [ingresarFicha/2]).
 
 :- use_module('tree-node-leaf').
 
-% updates a node by simulating a chip passing through it
-updateNode(node(ID, S), PostNode) :-
-  S =:= 0 , PostNode = node(ID, 1);
-  S =:= 1 , PostNode = node(ID, 0).
+% updates a nodo by simulating a chip passing through it
+updatenodo(nodo(ID, S), Postnodo) :-
+  S =:= 0 , Postnodo = nodo(ID, 1);
+  S =:= 1 , Postnodo = nodo(ID, 0).
 
-% Add a chip to the tree, it goes through the nodes ultil it reaches a leaf.
+% Add a chip to the maquina, it goes through the nodos ultil it reaches a tronera.
 
-% base case: add a chip to a tree consisting of a node and two leaves.
-addChip(tree(node(IDn, S), leaf(IDl, Nl), leaf(IDr, Nr)), Post) :-
+% base case: add a chip to a maquina consisting of a nodo and two leaves.
+ingresarFicha(maquina(nodo(IDn, S), tronera(IDl, Nl), tronera(IDr, Nr)), Post) :-
   S =:= 0,
     UNr is Nr + 1,
-    Post = tree(node(IDn, 1), leaf(IDl, Nl), leaf(IDr, UNr));
+    Post = maquina(nodo(IDn, 1), tronera(IDl, Nl), tronera(IDr, UNr));
   S =:= 1,
     UNl is Nl + 1,
-    Post = tree(node(IDn, 0), leaf(IDl, UNl), leaf(IDr, Nr)).
+    Post = maquina(nodo(IDn, 0), tronera(IDl, UNl), tronera(IDr, Nr)).
 
-% generic case: a chip passes through a tree made of node and two trees.
-addChip(tree(node(ID, S), Tl, Tr), Post) :-
+% generic case: a chip passes through a maquina made of nodo and two maquinas.
+ingresarFicha(maquina(nodo(ID, S), Tl, Tr), Post) :-
   S =:= 0,
-    updateNode(node(ID, S), PostNode),
-    addChip(Tr, PostR),
-    Post = tree(PostNode, Tl, PostR);
+    updatenodo(nodo(ID, S), Postnodo),
+    ingresarFicha(Tr, PostR),
+    Post = maquina(Postnodo, Tl, PostR);
   S =:= 1,
-    updateNode(node(ID, S), PostNode),
-    addChip(Tl, PostL),
-    Post = tree(PostNode, PostL, Tr).
+    updatenodo(nodo(ID, S), Postnodo),
+    ingresarFicha(Tl, PostL),
+    Post = maquina(Postnodo, PostL, Tr).
