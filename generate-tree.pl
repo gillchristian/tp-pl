@@ -1,4 +1,6 @@
-consult('tree-node-leaf').
+:- module(generateTree, [generateTree/2]).
+
+:- use_module('tree-node-leaf').
 
 % id of node:
 %   left: prev node * 2

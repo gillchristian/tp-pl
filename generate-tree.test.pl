@@ -1,12 +1,10 @@
-% WARNING: DO NOT CONSULT THIS FILE!!!
-% consult 'generate-tree', and then do the test queries
+% consult this file and use the query as tests case
+:- use_module('generate-tree').
 
-consult('generate-tree').
-
-generateTree(1, M).
+% generateTree(1, M).
 % M = tree(node(1, 0), leaf(2, 0), leaf(3, 0)).
 
-generateTree(2, M).
+% generateTree(2, M).
 % M = tree(
 %   node(1, 0),
 %   tree(node(2, 0), leaf(4, 0), leaf(5, 0)),
@@ -14,7 +12,7 @@ generateTree(2, M).
 % ).
 
 
-generateTree(3, M).
+% generateTree(3, M).
 % M = tree(
 %   node(1, 0),
 %   tree(
@@ -29,7 +27,7 @@ generateTree(3, M).
 %   )
 % ).
 
-generateTree(4, M).
+% generateTree(4, M).
 % M = tree(
 %   node(1, 0),
 %   tree(

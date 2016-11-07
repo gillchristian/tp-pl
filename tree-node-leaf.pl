@@ -1,3 +1,5 @@
+:- module(tree, [tree/3, node/2, leaf/2]).
+
 % leaf
 %   outher most nodes of the tree
 %   functionality: accumulate chips.
