@@ -26,7 +26,7 @@ maquina(nodo(ID, N), tronera(IDl, Nl), tronera(IDr, Nr)) :-
   tronera(IDr, Nr).
 
 % inner maquina: an inner nodo and two maquinas.
-maquina(nodo(ID, N), maquina(nodoL, LTl, LTr), maquina(nodoR, RTl, RTr)) :-
+maquina(nodo(ID, N), maquina(NodoL, LTl, LTr), maquina(NodoR, RTl, RTr)) :-
   nodo(ID, N), % nodo
-  maquina(nodoL, LTl, LTr), % left maquina
-  maquina(nodoR, RTl, RTr). % right maquina
+  maquina(NodoL, LTl, LTr), % left maquina
+  maquina(NodoR, RTl, RTr). % right maquina
