@@ -10,9 +10,9 @@ walkmaquina(maquina(_, tronera(IDl, Nl), tronera(IDr, Nr)), Acc, Leaves) :-
   append(Acc, [tronera(IDl, Nl), tronera(IDr, Nr)], Leaves).
 
 % generic case: walk the treas of a maquina made of a nodo and two maquinas.
-walkmaquina(maquina(_, maquina(_, A, B), maquina(_, C , E)), Acc, Leaves) :-
-  walkmaquina(maquina(_, A, B), Acc, AccL),
-  walkmaquina(maquina(_, C , E), Acc, AccR),
+walkmaquina(maquina(_, TL, TR), Acc, Leaves) :-
+  walkmaquina(TL, Acc, AccL),
+  walkmaquina(TR, Acc, AccR),
   append(AccL, AccR, Leaves).
 
 % resultado: add N chips and the collect the results
